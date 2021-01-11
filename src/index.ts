@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { HolidayCheck } from './service/holiday-check';
 import moment from 'moment-timezone';
 import { Environment } from './env/environment';
