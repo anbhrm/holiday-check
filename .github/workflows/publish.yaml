@@ -1,4 +1,4 @@
-name: Node.js Publish
+name: publish
 on:
   push:
     branches:
