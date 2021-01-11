@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-import { HolidayCheck } from './service/holiday-check';
 import moment from 'moment-timezone';
 import { Environment } from './env/environment';
+import HolidayCheck from './service/holiday-check';
 
 let returnCode = 0;
 (async (): Promise<number> => {

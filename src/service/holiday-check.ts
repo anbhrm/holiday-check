@@ -4,7 +4,7 @@ import { CalendarEvent } from '../model/calendar-event';
 import moment from 'moment-timezone';
 import { Environment } from '../env/environment';
 
-export class HolidayCheck {
+export default class HolidayCheck {
   private accessToken = '';
   private calendarIdList: string[] = [];
 
