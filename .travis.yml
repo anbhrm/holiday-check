@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - '12'
+install:
+  - npm install
+script:
+  - npm run lint
+  - npm run tsc
+deploy:
+  provider: npm
+  skip_cleanup: true
+  email: '47078866+anbhrm@users.noreply.github.com'
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
