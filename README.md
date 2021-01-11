@@ -1,7 +1,7 @@
 # holiday-check
 
 [![npm version](https://badge.fury.io/js/holiday-check.svg)](https://badge.fury.io/js/holiday-check)
-[![Build Status](https://travis-ci.com/anbhrm/holiday-check.svg?token=3Ja3izKCzcheejgE6jcY&branch=master)](https://travis-ci.com/anbhrm/holiday-check)
+![build](https://github.com/anbhrm/holiday-check/workflows/build/badge.svg)
 
 [Google Calendar API](https://developers.google.com/calendar)を利用し、指定日付が祝休日であるかをチェックする機能を提供します。  
 「定期実行で平日に回しているシェルだけど祝日は処理をスキップさせたい」等のケースで使う事を想定した作りになっています。
