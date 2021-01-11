@@ -2,7 +2,6 @@ import { google } from 'googleapis';
 import * as rm from 'typed-rest-client/RestClient';
 import { CalendarEvent } from '../model/calendar-event';
 import moment from 'moment-timezone';
-import { Environment } from '../env/environment';
 
 export class HolidayCheck {
   private accessToken = '';
