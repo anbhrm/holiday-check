@@ -1,19 +1,23 @@
 {
   "name": "holiday-check",
-  "version": "0.1.10",
+  "version": "1.0.0",
   "description": "GoogleCalendarAPIを利用し、実行日が祝日であるかをチェックするCLIツール",
   "keywords": [
     "holiday",
     "google-calendar"
   ],
   "bin": {
-    "holiday-check": "dist/index.js"
+    "holiday-check": "dist/cli/holiday-check-cli.js"
   },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "ts-node src/index.ts",
-    "dev:watch": "ts-node-dev --respawn src/index.ts",
+    "dev": "ts-node src/cli/holiday-check-cli.ts",
+    "dev:watch": "ts-node-dev --respawn src/cli/holiday-check-cli.ts",
     "clean": "rimraf dist/*",
     "tsc": "tsc",
     "build": "npm-run-all clean tsc",

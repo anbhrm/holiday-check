@@ -4,11 +4,12 @@ import { CalendarEvent } from '../model/calendar-event';
 import moment from 'moment-timezone';
 import { Environment } from '../env/environment';
 
-export default class HolidayCheck {
+export class HolidayCheck {
   private accessToken = '';
   private calendarIdList: string[] = [];
+  private holidayWeekdays: number[] = [];
 
-  private constructor() {
+  public constructor() {
     // block
   }
 
@@ -16,6 +17,7 @@ export default class HolidayCheck {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     this.accessToken = await this.getGoogleAccessToken(option.googleServiceAccountKeyJsonPath);
     this.calendarIdList = option.googleCalendarIdList;
+    this.holidayWeekdays = option.holidayWeekdays;
   }
 
   public static async instance(option: HolidayCheckerOption): Promise<HolidayCheck> {
@@ -29,7 +31,7 @@ export default class HolidayCheck {
     const restClient: rm.RestClient = new rm.RestClient('', 'https://www.googleapis.com');
     let holidayName: string | undefined;
 
-    if (Environment.HOLIDAY_WEEKDAYS.includes(moment(currentDate).weekday())) {
+    if (this.holidayWeekdays.includes(moment(currentDate).weekday())) {
       holidayName = 'Weekday';
     } else {
       for (const calendarId of this.calendarIdList) {
@@ -80,4 +82,5 @@ export default class HolidayCheck {
 interface HolidayCheckerOption {
   googleCalendarIdList: string[];
   googleServiceAccountKeyJsonPath: string;
+  holidayWeekdays: number[];
 }
