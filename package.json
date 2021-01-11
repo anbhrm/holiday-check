@@ -1,6 +1,6 @@
 {
   "name": "holiday-check",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "GoogleCalendarAPIを利用し、実行日が祝日であるかをチェックするCLIツール",
   "keywords": [
     "holiday",
