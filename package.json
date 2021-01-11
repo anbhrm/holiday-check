@@ -1,14 +1,11 @@
 {
   "name": "holiday-check",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "GoogleCalendarAPIを利用し、実行日が祝日であるかをチェックするCLIツール",
   "keywords": [
     "holiday",
     "google-calendar"
   ],
-  "bin": {
-    "holiday-check": "dist/index.js"
-  },
   "scripts": {
     "dev": "ts-node src/index.ts",
     "dev:watch": "ts-node-dev --respawn src/index.ts",
