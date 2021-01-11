@@ -1,4 +1,4 @@
-name: Node.js Package
+name: Node.js Lint
 on:
   push:
     branches:
@@ -13,4 +13,4 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
-      - run: npm lint
+      - run: npm run lint
