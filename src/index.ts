@@ -31,3 +31,5 @@ let returnCode = 0;
   .finally(() => {
     process.exit(returnCode);
   });
+
+export * from './service/holiday-check';
