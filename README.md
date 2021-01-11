@@ -3,7 +3,8 @@
 [![npm version](https://badge.fury.io/js/holiday-check.svg)](https://badge.fury.io/js/holiday-check)
 [![Build Status](https://travis-ci.com/anbhrm/holiday-check.svg?token=3Ja3izKCzcheejgE6jcY&branch=master)](https://travis-ci.com/anbhrm/holiday-check)
 
-[Google Calendar API](https://developers.google.com/calendar)を利用し、指定日付が休日であるかをチェックする機能を提供します。
+[Google Calendar API](https://developers.google.com/calendar)を利用し、指定日付が祝休日であるかをチェックする機能を提供します。  
+「定期実行で平日に回しているシェルだけど祝日は処理をスキップさせたい」等のケースで使う事を想定した作りになっています。
 
 ## 利用方法
 
@@ -16,8 +17,13 @@ GCPの[コンソール](https://console.cloud.google.com/)からGoogle Calendar 
 
 CLIツールとして利用する場合、コマンドを実行するディレクトリ直下に事前の手順で作成した秘密鍵を`key.json`として配置し、下記コマンドを実行します。
 
-```bash
+```shell script
+# インストールしない場合
 npx holiday-check
+
+# インストールする場合
+npm install -g holiday-check
+holiday-check
 ```
 
 実行時の日付が平日の場合は`0`が、休日の場合は`1`が戻り値として返却されます。  
@@ -34,7 +40,18 @@ npx holiday-check
 | NODE_HOLIDAY_CHECKER_TIMEZONE                             | なし                                              | 実行日付を取得する際にタイムゾーンを固定したい場合に`Asia/Tokyo`の様にタイムゾーンを設定します。指定をしない場合は実行環境のタイムゾーンに依存します。 |
 | HOLIDAY_WEEKDAYS                                          | `0;6`                                             | 休日として扱う曜日を設定します。デフォルトは土日が休日に設定されています。 |
 
+シェルスクリプトへの組み込み例
+```shell script
+#!/bin/bash
 
+export NODE_HOLIDAY_CHECKER_GOOGLE_CALENDAR_ID="ja.japanese#holiday@group.v.calendar.google.com;xxxxxxxxxx@group.calendar.google.com"
+export NODE_HOLIDAY_CHECKER_GOOGLE_SERVICE_ACCOUNT_KEY_JSON_PATH="/etc/holiday-check/key.json"
+holiday-check
+if [ $? = 1 ]; then
+  echo "祝日のため、処理を終了します"
+  exit 0
+fi
+```
 
 ### ライブラリ利用
 
