@@ -1,11 +1,16 @@
 {
   "name": "holiday-check",
-  "version": "1.0.1",
-  "description": "GoogleCalendarAPIを利用し、実行日が祝日であるかをチェックするCLIツール",
+  "version": "1.0.2",
+  "description": "A CLI tool to find out if a date is a holiday using the Google Calendar API.",
   "keywords": [
     "holiday",
     "google-calendar"
   ],
+  "homepage": "https://github.com/anbhrm/holiday-check",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/anbhrm/holiday-check.git"
+  },
   "bin": {
     "holiday-check": "dist/cli/holiday-check-cli.js"
   },
@@ -13,7 +18,6 @@
   "files": [
     "dist"
   ],
-  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "ts-node src/cli/holiday-check-cli.ts",
